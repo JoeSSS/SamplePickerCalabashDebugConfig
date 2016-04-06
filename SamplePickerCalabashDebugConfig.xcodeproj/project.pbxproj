@@ -13,7 +13,6 @@
 		A8CAF4E11CB599BD008A1322 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8CAF4DF1CB599BD008A1322 /* Main.storyboard */; };
 		A8CAF4E41CB599BD008A1322 /* SamplePickerCalabashDebugConfig.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A8CAF4E21CB599BD008A1322 /* SamplePickerCalabashDebugConfig.xcdatamodeld */; };
 		A8CAF4E61CB599BD008A1322 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8CAF4E51CB599BD008A1322 /* Assets.xcassets */; };
-		A8CAF4E91CB599BD008A1322 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8CAF4E71CB599BD008A1322 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,8 +25,8 @@
 		A8CAF4E01CB599BD008A1322 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A8CAF4E31CB599BD008A1322 /* SamplePickerCalabashDebugConfig.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SamplePickerCalabashDebugConfig.xcdatamodel; sourceTree = "<group>"; };
 		A8CAF4E51CB599BD008A1322 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A8CAF4E81CB599BD008A1322 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A8CAF4EA1CB599BD008A1322 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A8CAF4F01CB59A23008A1322 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +65,6 @@
 				A8CAF4DD1CB599BD008A1322 /* ViewController.m */,
 				A8CAF4DF1CB599BD008A1322 /* Main.storyboard */,
 				A8CAF4E51CB599BD008A1322 /* Assets.xcassets */,
-				A8CAF4E71CB599BD008A1322 /* LaunchScreen.storyboard */,
 				A8CAF4EA1CB599BD008A1322 /* Info.plist */,
 				A8CAF4E21CB599BD008A1322 /* SamplePickerCalabashDebugConfig.xcdatamodeld */,
 				A8CAF4D61CB599BD008A1322 /* Supporting Files */,
@@ -113,7 +111,6 @@
 				TargetAttributes = {
 					A8CAF4D21CB599BD008A1322 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 4P4X27E73N;
 					};
 				};
 			};
@@ -140,7 +137,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A8CAF4E91CB599BD008A1322 /* LaunchScreen.storyboard in Resources */,
 				A8CAF4E61CB599BD008A1322 /* Assets.xcassets in Resources */,
 				A8CAF4E11CB599BD008A1322 /* Main.storyboard in Resources */,
 			);
@@ -167,16 +163,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				A8CAF4E01CB599BD008A1322 /* Base */,
+				A8CAF4F01CB59A23008A1322 /* de */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		A8CAF4E71CB599BD008A1322 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A8CAF4E81CB599BD008A1322 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -268,8 +257,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = SamplePickerCalabashDebugConfig/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-framework",
+					CFNetwork,
+					"-force_load",
+					"\"$(SOURCE_ROOT)/calabash.framework/calabash\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = new.io.SamplePickerCalabashDebugConfig;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -279,8 +276,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = SamplePickerCalabashDebugConfig/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-framework",
+					CFNetwork,
+					"-force_load",
+					"\"$(SOURCE_ROOT)/calabash.framework/calabash\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = new.io.SamplePickerCalabashDebugConfig;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -305,6 +310,7 @@
 				A8CAF4EF1CB599BD008A1322 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
