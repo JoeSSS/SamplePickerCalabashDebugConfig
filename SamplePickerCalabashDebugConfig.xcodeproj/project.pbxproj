@@ -265,7 +265,7 @@
 					"-framework",
 					CFNetwork,
 					"-force_load",
-					"\"$(SOURCE_ROOT)/calabash.framework/calabash\"",
+					"\"$(SOURCE_ROOT)/calabash.framework/Versions/A/calabash\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = new.io.SamplePickerCalabashDebugConfig;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -284,7 +284,7 @@
 					"-framework",
 					CFNetwork,
 					"-force_load",
-					"\"$(SOURCE_ROOT)/calabash.framework/calabash\"",
+					"\"$(SOURCE_ROOT)/calabash.framework/Versions/A/calabash\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = new.io.SamplePickerCalabashDebugConfig;
 				PRODUCT_NAME = "$(TARGET_NAME)";
