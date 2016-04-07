@@ -27,6 +27,7 @@
 		A8CAF4E51CB599BD008A1322 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A8CAF4EA1CB599BD008A1322 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A8CAF4F01CB59A23008A1322 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
+		F586EE051CB65C8C005B1950 /* libCalabashDynFAT.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libCalabashDynFAT.dylib; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,7 +47,9 @@
 				A8CAF4D51CB599BD008A1322 /* SamplePickerCalabashDebugConfig */,
 				A8CAF4D41CB599BD008A1322 /* Products */,
 			);
+			indentWidth = 4;
 			sourceTree = "<group>";
+			tabWidth = 4;
 		};
 		A8CAF4D41CB599BD008A1322 /* Products */ = {
 			isa = PBXGroup;
@@ -59,6 +62,7 @@
 		A8CAF4D51CB599BD008A1322 /* SamplePickerCalabashDebugConfig */ = {
 			isa = PBXGroup;
 			children = (
+				F586EE051CB65C8C005B1950 /* libCalabashDynFAT.dylib */,
 				A8CAF4D91CB599BD008A1322 /* AppDelegate.h */,
 				A8CAF4DA1CB599BD008A1322 /* AppDelegate.m */,
 				A8CAF4DC1CB599BD008A1322 /* ViewController.h */,
@@ -90,6 +94,7 @@
 				A8CAF4CF1CB599BD008A1322 /* Sources */,
 				A8CAF4D01CB599BD008A1322 /* Frameworks */,
 				A8CAF4D11CB599BD008A1322 /* Resources */,
+				F586EE091CB663B6005B1950 /* Run Script Add Calabash dylib to bundle */,
 			);
 			buildRules = (
 			);
@@ -143,6 +148,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F586EE091CB663B6005B1950 /* Run Script Add Calabash dylib to bundle */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script Add Calabash dylib to bundle";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bin/xcode-build-phase/add-calabash-dylib-to-bundle.sh";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A8CAF4CF1CB599BD008A1322 /* Sources */ = {
@@ -257,15 +280,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Karl Krukow (YTTN6Y2QS9)";
 				INFOPLIST_FILE = SamplePickerCalabashDebugConfig/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				OTHER_LDFLAGS = (
+					"$(inherited)",
 					"-ObjC",
 					"-framework",
 					CFNetwork,
-					"-force_load",
-					"\"$(SOURCE_ROOT)/calabash.framework/Versions/A/calabash\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = new.io.SamplePickerCalabashDebugConfig;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -279,12 +305,15 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = SamplePickerCalabashDebugConfig/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				OTHER_LDFLAGS = (
+					"$(inherited)",
 					"-ObjC",
 					"-framework",
 					CFNetwork,
-					"-force_load",
-					"\"$(SOURCE_ROOT)/calabash.framework/Versions/A/calabash\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = new.io.SamplePickerCalabashDebugConfig;
 				PRODUCT_NAME = "$(TARGET_NAME)";
