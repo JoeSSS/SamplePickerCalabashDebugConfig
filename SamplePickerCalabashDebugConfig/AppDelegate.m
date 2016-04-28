@@ -8,15 +8,42 @@
 
 #import "AppDelegate.h"
 
+#if DEBUG
+#import <dlfcn.h>
+#endif
+
 @interface AppDelegate ()
+
+#if DEBUG
+- (void) loadCalabashDylib;
+#endif
 
 @end
 
 @implementation AppDelegate
 
+#if DEBUG
+- (void) loadCalabashDylib {
+    NSBundle *bundle = [NSBundle mainBundle];
+    NSString *dylibPath = [bundle pathForResource:@"libCalabashDynFAT" ofType:@"dylib"];
+
+    NSLog(@"Attempting to load Calabash dylib: '%@'", dylibPath);
+    void *dylib = NULL;
+    dylib = dlopen([dylibPath cStringUsingEncoding:NSUTF8StringEncoding], RTLD_NOW);
+
+    if (dylib == NULL) {
+        char *error = dlerror();
+        NSString *message = @"Could not load the Calabash dylib.";
+        NSLog(@"%@: %s", message, error);
+    }
+}
+#endif
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+#if DEBUG
+    [self loadCalabashDylib];
+#endif
     return YES;
 }
 
